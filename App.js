@@ -1,6 +1,7 @@
     import React from "react";
     import ReactDOM from "react-dom/client";
     import restrauntList from "./data.js";
+import restaurants from "./data.js";
     {/**
                 Header
                     -logo
@@ -43,27 +44,43 @@
         );
     }
 
-    const RestrauntCard=() => {
+    const RestrauntCard=({name,cuisines,cloudinaryImageId,deliveryTime}) => {
         return(
             <div className="card">
-                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/" + restrauntList[0].info.cloudinaryImageId}/>
-                <h2>{restrauntList[0].info.name}</h2>
-                <h3>{restrauntList[0].info.cuisines.join(", ")}</h3>
-                <h4>{restrauntList[0].info.deliveryTime + "minutes"}</h4>
+                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/" + cloudinaryImageId}/>
+                <h2>{name}</h2>
+                <h3>{cuisines.join(", ")}</h3>
+                <h4>{deliveryTime + "minutes"}</h4>
             </div>
         );
     };
 
+    // const Body = () => {
+    //     return(
+    //         <div className="restaurant-list">
+    //         <RestrauntCard {...restrauntList[0].info}/>
+    //         <RestrauntCard {...restrauntList[1].info}/>
+    //         <RestrauntCard {...restrauntList[2].info}/>
+    //         <RestrauntCard {...restrauntList[3].info}/>
+    //         <RestrauntCard {...restrauntList[4].info}/>
+    //         <RestrauntCard {...restrauntList[5].info}/>
+    //         <RestrauntCard {...restrauntList[6].info}/>
+    //         <RestrauntCard {...restrauntList[7].info}/>
+    //         <RestrauntCard {...restrauntList[8].info}/>
+    //         </div>
+    //     )
+    // }
+
     const Body = () => {
         return(
             <div className="restaurant-list">
-            <RestrauntCard/>
-            <RestrauntCard/>
-            <RestrauntCard/>
-            <RestrauntCard/>
-            <RestrauntCard/>
+            {
+                restrauntList.map(restaurant =>{
+                    return <RestrauntCard key={restaurant.info.id} {...restaurant.info}/>
+                })
+            }
             </div>
-        )
+        );
     }
 
     const Footer= () => {
