@@ -29,6 +29,7 @@ const Body = () => {
                     const data=filterData(searchInput,restaurants);
                     //update the state-restaurants
                     setRestaurants(data);
+                    
                 }}>Search</button>
             </div>
             <div className="restaurant-list">
