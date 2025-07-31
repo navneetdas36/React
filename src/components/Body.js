@@ -14,6 +14,7 @@ const Body = () => {
         const [searchInput,setSearchInput]=useState("");
         const [filteredRestaurants,setFilteredRestaurants]=useState([]);
         const [allReastaurants,setAllRestaurants]=useState([]);
+        
         useEffect(()=>{
             getRestaurants();
         },[])
