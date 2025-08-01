@@ -28,3 +28,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+.shimmer-card{
+    width: 20px;
+    height: 200px;
+    background: lightgrey;
+    margin: 20px;
+}
